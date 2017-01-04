@@ -1,4 +1,4 @@
-# Parent Controll
+# Parent Control
 
 ##Responsible entertainment rather than control
 
