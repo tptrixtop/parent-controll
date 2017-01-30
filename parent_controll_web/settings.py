@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
+from os.path import abspath, dirname, join, normpath
+from sys import path
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -68,6 +71,24 @@ TEMPLATES = [
     },
 ]
 
+# Loading templates for *.html render in this config
+SITE_ROOT = dirname(dirname(abspath(__file__)))
+TEMPLATE_DIRS = (
+    normpath(join(SITE_ROOT, 'templates')),
+)
+
+# Loading static data like js,css,img and other
+# Note, write full paths to static data to avoid errors
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static/node_modules/angular"),
+    os.path.join(BASE_DIR, "static/node_modules/angular-route"),
+    os.path.join(BASE_DIR, "static/node_modules/bootstrap/dist"),
+    os.path.join(BASE_DIR, "static/node_modules/jquery/dist"),
+    os.path.join(BASE_DIR, "static/base"),
+)
+
+STATIC_URL = '/static/'
+
 WSGI_APPLICATION = 'parent_controll_web.wsgi.application'
 
 
@@ -123,3 +144,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+LOGIN_URL = '/users/login/'
