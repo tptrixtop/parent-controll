@@ -145,3 +145,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 LOGIN_URL = '/users/login/'
+
+CACHES = {
+     'default': {
+         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+     }
+}
+
