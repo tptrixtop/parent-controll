@@ -1,14 +1,20 @@
+{% load static %}
+{% include 'logo.html' %}
 <div class="row">
   <div class="col-md-4 col-md-offset-4">
-    <form class="form-signin" ng-submit="register()">
-      <h2 class="form-signin-heading text-center">Please fill the form</h2>
-      <label for="email" class="sr-only">Email address</label>
-      <input type="email" id="email" class="form-control" placeholder="Email address" ng-model="user_data.email" autofocus>
-      <label for="pass" class="sr-only">Password</label>
-      <input type="password" id="pass" class="form-control" placeholder="Password" ng-model="user_data.password">
-      <label for="r-pass" class="sr-only">Repeat password</label>
-      <input type="password" id="r-pass" class="form-control" placeholder="Repeat password" ng-model="user_data.repeat_pass">
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Next</button>
+    <form class="form-reg" ng-submit="register()">
+      <h4 class="form-signin-heading">Please fill the form</h4>
+      <div class="form-group">     
+        <label for="email" class="sr-only">Email address</label>
+        <input type="email" id="email" class="form-control" placeholder="Email address" ng-model="user_data.email" autofocus ng-keydown="checkUniqEmail()" required>
+        <label for="pass" class="sr-only">Password</label>
+        <input type="password" id="pass" class="form-control" placeholder="Password" ng-model="user_data.password" required>
+        <label for="r-pass" class="sr-only">Repeat password</label>
+        <input type="password" id="r-pass" class="form-control" placeholder="Repeat password" ng-model="user_data.repeat_pass">
+      </div>
+
+      <button class="btn btn-md btn-primary btn-block" type="submit">Next</button>
+      <a class="btn btn-md btn-info btn-block" href="/users/">Return</a>
     </form>
   </div>
 </div>

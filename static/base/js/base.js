@@ -3,9 +3,12 @@ var app = angular
         'ngRoute',
         'App.controllers.Reg',
         'App.controllers.Login',
-        'CsrfService'
+        'App.controllers.Main',
+        'App.controllers.DashBoard',
+        'User',
+        'CsrfService',
+        'LoaderService'
     ]);
-
 
 app.factory('httpRequestInterceptorAddHeaders', [function () {
     return {
@@ -38,9 +41,17 @@ app.config(
                  controller: 'login',
                  templateUrl: '/users/login-template'
              })
+             .when('/login', {
+                 controller: 'login',
+                 templateUrl: '/users/login-template'
+             })
              .when('/reg', {
                  controller: 'reg',
                  templateUrl: '/users/reg-template'
+             })
+             .when('/dashboard', {
+                 controller: 'dashboard',
+                 templateUrl: '/users/dashboard-view'
              })
          ;
 

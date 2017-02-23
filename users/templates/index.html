@@ -15,18 +15,32 @@
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/base.js' %}"></script>
     <script src="{% static 'js/services/csrf.js' %}"></script>
+    <script src="{% static 'js/services/loader.js' %}"></script>
+    <script src="{% static 'js/services/user.js' %}"></script>
     <script src="{% static 'js/controllers/reg.js' %}"></script>
     <script src="{% static 'js/controllers/login.js' %}"></script>
+    <script src="{% static 'js/controllers/main.js' %}"></script>
+    <script src="{% static 'js/controllers/dashboard.js' %}"></script>
 
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
 
   </head>
 
-  <body>
+  <body ng-controller="main">
     {% csrf_token %}
+    {% include 'loader.html' %}
+
     <div class="container" data-ng-view="">
       
     </div>
+
+    <div class="lock-screen-block" ng-show="loader.global">
+      <div class="loader">
+        <img src="{% static 'img/loader.svg' %}" alt="loader" />
+      </div>
+    </div>
+
   </body>
 
 </html>
